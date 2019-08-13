@@ -28,7 +28,7 @@ body {
 }
 
 .nav {
-    /* position: relative; */
+    position: relative;
     height: 60px;
     z-index: 100;
 }
@@ -148,6 +148,7 @@ body {
     -webkit-transition: all .5s ease-in-out;
     transition: all .5s ease-in-out;
     animation: shake 1s infinite;
+    z-index: 5;
 }
 
 .nav__phone-icon:hover {
@@ -202,77 +203,17 @@ section > h1 {
     margin: 16px 0;
 }
 
-/* SECTION 4 MOBILE */
-
-section:nth-of-type(4) > h1 {
-    text-align: center;
-    font-size: 2rem;
-    margin: 2em 0 1em 0;
-}
-section:nth-of-type(4) .section__card:first-of-type {
-    padding-top: 1em;
-}
-section:nth-of-type(4) .section__card:last-of-type {
-    padding-bottom: 1em;
-}
-section:nth-of-type(4) .section__btn {
-    background: #4787b0;
-}
-section:nth-of-type(4) .highlight {
-    color: #4787b0;
-}
-
-.section__photo {
-    background-position: center;
-    background-size: cover;
-    height: 250px;
-    width: 100%;
-}
-
-section:nth-of-type(1) > .section__photo {
-    background-image: url('img/main/section_1-min.jpg');
-}
-section:nth-of-type(2) > .section__photo {
-    background-image: url('img/main/section_4.JPG');
-}
-/* .section__photo:nth-child(3) {
-    background-image: url('img/main/section_1-min.jpg');
-}
-.section__photo:nth-child(4) {
-    background-image: url('img/main/section_1-min.jpg');
-}
-.section__photo:nth-child(5) {
-    background-image: url('img/main/section_1-min.jpg');
-}
-.section__photo:nth-child(6) {
-    background-image: url('img/main/section_1-min.jpg');
-} */
-
-section:nth-of-type(2) .section__content {
-    /* background-image: url('/img/main/section_4-dark.JPG'); */
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-}
-
-section:nth-of-type(3) .section__content {
-    background-color: #fafafa;
-    padding: 30px 30px 0 30px;
-}
-
-section:nth-of-type(4) .section__content {
-    background-color: #303030;
-    color: #f5f5f5;
-    padding: 0;
-}
-
-
-
 .section__content {
     background: #f5f5f5;
     padding: 30px;
     color: #333;
 }
+
+.highlight {
+    color: #66C530;
+    font-weight: 900;
+}
+
 .section__content--hidden {
     display: none;
 }
@@ -305,8 +246,6 @@ section:nth-of-type(4) .section__content {
 .section__content_body h6:last-of-type::after {
     display: none;
 }
-
-
 
 .section__card {
     /* height: 100px; */
@@ -347,54 +286,116 @@ section:nth-of-type(4) .section__content {
 
 .section__btn:hover {
     background: rgb(160, 160, 160);
+    animation: move_btn .3s infinite alternate-reverse;
 }
 
-.highlight {
-    color: #66C530;
-    font-weight: 900;
+@keyframes move_btn { 
+    0% {transform: translateY(3px)}
+    100% {transform: translateY(-3px)};
 }
 
-/* section h1::after {
-    content: '';
-    background-image: url('img/main/tooth.svg');
-    background-repeat: repeat-x;
-    display: block;
-    width: 100%;
-    height: 20px;
+
+.section__photo {
+    background-position: center;
+    background-size: cover;
+    height: 250px;
+    width: 90%;
+    margin: 0 auto 1em auto;
+}
+
+
+/* SECTIONS PHOTO BG  */
+
+section:nth-of-type(1) > .section__photo {
+    background-image: url('img/main/section_1-min.jpg');
+}
+section:nth-of-type(2) > .section__photo {
+    background-image: url('img/main/section_4.JPG');
+}
+section:nth-of-type(3) > .section__photo {
+    background-image: url('img/main/2_1.jpg');
+}
+section:nth-of-type(4) > .section__photo {
+    background-image: url('img/main/1_9.jpg');
+}
+/* .section__photo:nth-child(5) {
+    background-image: url('img/main/section_1-min.jpg');
 } */
+/* .section__photo:nth-child(6) {
+    background-image: url('img/main/section_1-min.jpg');
+} */
+
+
+/* SECTIONS CONTENT STYLES */
+
+section:nth-of-type(2) .section__content {
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+}
+section:nth-of-type(3) .section__content {
+    background-color: #fafafa;
+    padding: 0 30px 0 30px;
+}
+section:nth-of-type(4) .section__content {
+    background-color: #303030;
+    color: #f5f5f5;
+}
+section:nth-of-type(5) .section__content {
+    background-color: #303030;
+    color: #f5f5f5;
+}
+
+
+/* SECTION 3 MOBILE  */
+
+section:nth-of-type(3) .section__btn {
+    background-color: #e4e4e4;
+    color: #333;
+}
+
+
+/* SECTION 4 MOBILE */
+
+section:nth-of-type(4) > h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin: 2em 0 0.5em 0;
+}
+section:nth-of-type(4) .section__card:first-of-type {
+    padding-top: 1em;
+}
+section:nth-of-type(4) .section__card:last-of-type {
+    padding-bottom: 1em;
+}
+section:nth-of-type(4) .section__btn {
+    background: #0097d5;
+}
+section:nth-of-type(4) .highlight {
+    color: #4787b0;
+}
+
 
 
 /* SECTION 5 GALLERY  */
 
 .slide:nth-of-type(1) {
     background-image: url('/img/section4_gallery/1-min.JPG');
-    background-position: center;
-    background-size: cover;
 }
 .slide:nth-of-type(2) {
     background-image: url('/img/section4_gallery/3-min.jpg');
-    background-position: center;
-    background-size: cover;
 }
 .slide:nth-of-type(3) {
     background-image: url('/img/section4_gallery/5-min.jpg');
-    background-position: center;
-    background-size: cover;
 }
 .slide:nth-of-type(4) {
     background-image: url('/img/section4_gallery/6-min.jpg');
-    background-position: center;
-    background-size: cover;
 }
 .slide:nth-of-type(5) {
     background-image: url('/img/section4_gallery/7-min.JPG');
-    background-position: center;
-    background-size: cover;
 }
 .slide:nth-of-type(6) {
     background-image: url('/img/section4_gallery/8-min.JPG');
-    background-position: center;
-    background-size: cover;
 }
 
 #slides {
@@ -408,6 +409,8 @@ section:nth-of-type(4) .section__content {
 
 .slide {
     position: absolute;
+    background-position: center;
+    background-size: cover;
     left: 0px;
     top: 0px;
     width: 100%;
@@ -422,4 +425,40 @@ section:nth-of-type(4) .section__content {
 .showing {
     opacity: 1;
     z-index: 2;
+}
+
+
+
+/* SECTION 6 KONTAKT */
+
+section:nth-of-type(6) .section__content {
+    background-color: #303030;
+    color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+
+section:nth-of-type(6) .section__content > div {
+    margin: 1em auto;
+    padding: 0 0 0 1em;
+    width: 300px;
+    font-size: 11px;
+    text-align: center;
+}
+/* section:nth-of-type(6) .section__content > div:last-of-type {
+    text-align: center;
+} */
+section:nth-of-type(6) .section__content li {
+    list-style: none;
+}
+
+/* FOOTER STYLES */
+
+.footer {
+    height: auto;
+    background-color: #F8F8FF;
+    color: #333;
+    text-align: center;
+    font-size: 8px;
 }

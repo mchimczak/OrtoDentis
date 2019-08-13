@@ -5,12 +5,7 @@ const menu = document.querySelector('.nav__dropdown-menu__block');
 const arrow = document.querySelector('.nav__dropdown-menu__arrow');
 const cross = document.querySelector('.nav__cross');
 const links = document.querySelectorAll('.link');
-
 const main = document.querySelector('.main__img');
-
-// const s3btn = document.getElementById('s3btn');
-// const s3hidden = document.getElementById('s3hidden');
-
 const buttons = document.querySelectorAll('button');
 
 
@@ -29,7 +24,7 @@ function dropdown_toggle() {
     menuIcon.classList.toggle('disable');
     cross.classList.toggle('active');
     dropdownMenu.classList.toggle('active');
-    setTimeout(() => dropdownMenu.classList.toggle('active-enter'), 10);
+    dropdownMenu.classList.toggle('active-enter')
     setTimeout(() => arrow.style.setProperty('opacity', '1'), 10);
 }
 
@@ -38,21 +33,31 @@ cross.addEventListener('click', dropdown_toggle);
 links.forEach(link => link.addEventListener('click', dropdown_toggle));
 
 
-// function toggleSection() {
-
-//     s3btn.innerHTML === "Więcej" ? s3btn.innerHTML = "Zwiń" : s3btn.innerHTML = "Więcej";
-
-//     s3hidden.classList.toggle('section__content--hidden');
-// };
-
-// s3btn.addEventListener('click', toggleSection);
-
-
+//  BUTTONS HANDLER 
 
 
 buttons.forEach(button => button.addEventListener('click', () => {
+    const nav = document.querySelector('nav');
+    let sectionContent = button.parentNode;
+    let section = button.parentNode.parentNode;
+
+    // if (button.innerHTML === "Więcej") {
+    //     window.scrollTo(0, sectionContent.offsetTop - nav.offsetHeight)
+    // } else {
+    //     window.scrollTo(0, section.offsetTop - nav.offsetHeight)
+    // }
+        
+            if (button.innerHTML === "Więcej" || sectionContent.classList.contains("section__card")) {
+                window.scrollTo(0, sectionContent.offsetTop - nav.offsetHeight)
+            } else {
+                window.scrollTo(0, section.offsetTop - nav.offsetHeight)
+            }
+        
+
+
     button.innerHTML === "Więcej" ? button.innerHTML = "Zwiń" : button.innerHTML = "Więcej";
     button.previousElementSibling.classList.toggle('section__content--hidden');
+    // window.scrollTo(0, sectionContent.offsetTop - nav.offsetHeight);
 }));
 
 
