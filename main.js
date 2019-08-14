@@ -46,13 +46,13 @@ buttons.forEach(button => button.addEventListener('click', () => {
     // } else {
     //     window.scrollTo(0, section.offsetTop - nav.offsetHeight)
     // }
-        
-            if (button.innerHTML === "Więcej" || sectionContent.classList.contains("section__card")) {
-                window.scrollTo(0, sectionContent.offsetTop - nav.offsetHeight)
-            } else {
-                window.scrollTo(0, section.offsetTop - nav.offsetHeight)
-            }
-        
+
+    if (button.innerHTML === "Więcej" || sectionContent.classList.contains("section__card")) {
+        window.scrollTo(0, sectionContent.offsetTop - nav.offsetHeight)
+    } else {
+        window.scrollTo(0, section.offsetTop - nav.offsetHeight)
+    }
+
 
 
     button.innerHTML === "Więcej" ? button.innerHTML = "Zwiń" : button.innerHTML = "Więcej";
