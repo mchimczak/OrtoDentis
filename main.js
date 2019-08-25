@@ -6,13 +6,27 @@ const arrow = document.querySelector('.nav__dropdown-menu__arrow');
 const cross = document.querySelector('.nav__cross');
 const links = document.querySelectorAll('.link');
 const main = document.querySelector('.main__img');
-const buttons = document.querySelectorAll('button');
+const headerContent = document.querySelector('.main__header__content')
+const buttons = document.querySelectorAll('.section__btn');
 
 
 
 window.onload = function () {
-    setTimeout(() => main.classList.add('enlarge'), 100)
+    // setTimeout(() => main.classList.add('enlarge'), 100)
+    // setTimeout(() => navHeader.classList.add('active-enter'), 450);
     setTimeout(() => navHeader.classList.add('active-enter'), 450);
+
+    var promise =  new Promise(function(resolve, reject) {
+        setTimeout(function() {
+            resolve(main.classList.add('enlarge'));
+         }, 100);
+    });
+
+    // promise.then(setTimeout(() => headerContent.classList.add('showing')), 10000);
+    promise.then(setTimeout(function() {
+        headerContent.classList.add('showing');
+    }), 5000)
+
 }
 
 
@@ -33,8 +47,11 @@ cross.addEventListener('click', dropdown_toggle);
 links.forEach(link => link.addEventListener('click', dropdown_toggle));
 
 
-//  BUTTONS HANDLER 
 
+// NAV LINKS HANDLER
+
+
+//  BUTTONS HANDLER 
 
 buttons.forEach(button => button.addEventListener('click', () => {
     const nav = document.querySelector('nav');
@@ -52,8 +69,6 @@ buttons.forEach(button => button.addEventListener('click', () => {
     } else {
         window.scrollTo(0, section.offsetTop - nav.offsetHeight)
     }
-
-
 
     button.innerHTML === "Więcej" ? button.innerHTML = "Zwiń" : button.innerHTML = "Więcej";
     button.previousElementSibling.classList.toggle('section__content--hidden');
