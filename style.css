@@ -356,10 +356,10 @@ section:nth-of-type(3) .slide-in.active-enter, section:nth-of-type(4) .slide-in.
 /* SECTIONS PHOTO BG  */
 
 section:nth-of-type(1) .section__photo {
-    background-image: url('img/main/section_1-min.JPG');
+    background-image: url('img/main/section_1-min.jpg');
 }
 section:nth-of-type(2) .section__photo {
-    background-image: url('img/main/section_2-min.JPG');
+    background-image: url('img/main/section_2-min.jpg');
 }
 section:nth-of-type(3) .section__photo {
     background-image: url('img/main/section_3-min.jpg');
