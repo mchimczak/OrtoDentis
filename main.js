@@ -16,7 +16,7 @@ window.onload = function () {
     // promise.then(setTimeout(() => headerContent.classList.add('showing')), 10000);
     promise.then(setTimeout(function() {
         headerContent.classList.add('showing');
-    }), 5000)
+    }), 5000);
 
 }
 
@@ -56,21 +56,17 @@ buttons.forEach(button => button.addEventListener('click', () => {
     let sectionContent = button.parentNode;
     let section = button.parentNode.parentNode;
 
-    // if (button.innerHTML === "Więcej") {
-    //     window.scrollTo(0, sectionContent.offsetTop - nav.offsetHeight)
-    // } else {
-    //     window.scrollTo(0, section.offsetTop - nav.offsetHeight)
-    // }
 
     if (button.innerHTML === "Więcej" || sectionContent.classList.contains("section__card")) {
         window.scrollTo(0, sectionContent.offsetTop - nav.offsetHeight)
     } else {
         window.scrollTo(0, section.offsetTop - nav.offsetHeight)
+        // window.scrollTo(0, button.offsetParent.offsetTop - nav.offsetHeight)
     }
+
 
     button.innerHTML === "Więcej" ? button.innerHTML = "Zwiń" : button.innerHTML = "Więcej";
     button.previousElementSibling.classList.toggle('section__content--hidden');
-    // window.scrollTo(0, sectionContent.offsetTop - nav.offsetHeight);
 }));
 
 
@@ -97,19 +93,8 @@ document.body.append(highlight);
 
 
 function highlightElement() {
-    // highlight.style.setProperty('display', 'block');
     highlight.classList.add('active-enter');
-    // this.classList.add('section__card--enlarge');
-    // const cardCoords = this.getBoundingClientRect();
-    // const coords = {
-    //     width:  cardCoords.width,
-    //     height: cardCoords.height,
-    //     top:    cardCoords.top + window.scrollY,
-    //     left:   cardCoords.left + window.scrollX
-    // }; 
-
     infoButton.classList.add('disable');
-
 
 
     if (this.children[3] != undefined) {
@@ -163,30 +148,6 @@ function highlightElement() {
         highlight.style.height = `${coords.height}px`;
         highlight.style.transform = `translate(${coords.left}px, ${coords.top}px)`;
     }
-
-
-    // const text = this.children[2];
-    // text.style.setProperty('display', 'block');
-    // const textCoords = text.getBoundingClientRect();
-    // const coords = {
-    //     width:  textCoords.width,
-    //     height: textCoords.height,
-    //     top:    textCoords.top + window.scrollY,
-    //     left:   textCoords.left + window.scrollX
-    // };  
-
-    // console.log(textCoords);
-    // // console.log(cardCoords);
-
-    // // highlight.style.width = `${textCords.width}px`;
-    // // highlight.style.height = `${textCords.height}px`;
-    // // highlight.style.transform = `translate(${textCords.left}px, ${textCords.top}px)`;
-
-    // highlight.style.width = `${coords.width}px`;
-    // highlight.style.height = `${coords.height}px`;
-    // highlight.style.transform = `translate(${coords.left}px, ${coords.top}px)`;
-
-
 }
 
 function blindElement() {
@@ -209,3 +170,43 @@ function blindElement() {
 
 cards.forEach(card => card.addEventListener('mouseenter', highlightElement));
 cards.forEach(card => card.addEventListener('mouseleave', blindElement));
+
+
+
+// SLIDE IN SECTION__PHOTOS
+
+
+function debounce(func, wait = 20, immediate = true) {
+    var timeout;
+    return function() {
+      var context = this, args = arguments;
+      var later = function() {
+        timeout = null;
+        if (!immediate) func.apply(context, args);
+      };
+      var callNow = immediate && !timeout;
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+      if (callNow) func.apply(context, args);
+    };
+  };
+
+  const sliderImages = document.querySelectorAll('.slide-in');
+
+  function checkSlide() {
+    sliderImages.forEach(sliderImage => {
+      // half way through the image
+      const slideInAt = (window.scrollY + window.innerHeight) - sliderImage.offsetHeight / 2;
+      // bottom of the image
+      const imageBottom = sliderImage.offsetTop + sliderImage.offsetHeight;
+      const isHalfShown = slideInAt > sliderImage.offsetTop;
+      const isNotScrolledPast = window.scrollY < imageBottom;
+      if (isHalfShown && isNotScrolledPast) {
+        sliderImage.classList.add('active-enter');
+      } else {
+        sliderImage.classList.remove('active-enter');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', debounce(checkSlide));
