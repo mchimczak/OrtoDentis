@@ -2,18 +2,9 @@ const navHeader = document.querySelector('.nav__header');
 const main = document.querySelector('.main__img');
 const headerContent = document.querySelector('.main__header__content');
 
-window.onload = function () {
+(function () {
 
     setTimeout(() => navHeader.classList.add('active-enter'), 450);
-
-    // var promise1 =  new Promise(function(resolve, reject) {
-    //     setTimeout(function() {
-    //         main.classList.add('enlarge')
-    //      }, 100);
-    //      setTimeout(function() {
-    //         resolve (headerContent.classList.add('showing'));
-    //     }, 1500);
-    // });
     var promise1 = new Promise(function (resolve, reject) {
         setTimeout(function () {
             main.classList.add('enlarge')
@@ -27,7 +18,7 @@ window.onload = function () {
             main.style.setProperty('filter', 'none');
         }, 500);
     });
-}
+})();
 
 
 
@@ -142,7 +133,7 @@ function highlightElement() {
         const info = this.children[3];
         // text.style.setProperty('display', 'block') && info.style.setProperty('display', 'block');
         window.innerWidth >= 992 ? photo.style.setProperty('transform', 'translate(-50%) scale(1.4)') : '';
-        header.classList.add('highlight');
+        window.innerWidth >= 992 ? header.classList.add('highlight') : '';
         text.classList.add('active') || info.classList.add('active');
         setTimeout(() => text.classList.add('active-enter') || info.classList.add('active-enter'),150);
 
@@ -171,7 +162,7 @@ function highlightElement() {
         const text = this.children[2];
         // text.style.setProperty('display', 'block');
         window.innerWidth >= 992 ? photo.style.setProperty('transform', 'translate(-50%) scale(1.4)'): '';
-        header.classList.add('highlight');
+        window.innerWidth >= 992 ? header.classList.add('highlight'): '';
         text.classList.add('active');
         setTimeout(() => text.classList.add('active-enter'),150);
         const textCoords = text.getBoundingClientRect();
@@ -251,23 +242,17 @@ function debounce(func, wait = 20, immediate = true) {
 
 
 
-
-
-
-
-
-
-
-
+//CHANGE HEADER CONTENT 
   function changeHeaderContent() {
-      const headerContent = document.querySelector('.main__header__content > span');
-      const header = document.querySelector('.main__header__content');
+      const headerContent = document.querySelector('.main__header__content');
+    //   const header = document.querySelector('.main__header__content');
     
 
-      if (window.innerWidth >= 992) {
-          headerContent.innerHTML = "<p>Specjalistyczna Praktyka Stomatologiczna OrtoDentis zajmująca się leczeniem <span class='highlight' style='font-family:Istok Web', sans-serif'>ortodontycznym</span> funkcjonuje od 1994 roku.</p> <p>Do Państwa dyspozycji są nowocześnie wyposażone gabinety stomatologiczne oraz <span class='highlight' style='font-family:Istok Web', sans-serif'>pracownia RTG</span>.</p> <p>Pracujemy na najnowocześniejszych i sprawdzonych materiałach renomowanych firm ortodontycznych.</p><br><p>Zapoznaj się z naszą ofertą!</p>"
-        } else {
-        headerContent.innerHTML = "<p>Nowoczesne metody leczenia, profesjonalna opieka ortodontyczna i doświadczenie zbierane od ponad <span class='highlight' style='font-family:Istok Web', sans-serif'>25 lat</span>.</p><p>Zapoznaj się z naszą ofertą!</p>";
+      if (window.innerWidth <= 992) {
+        // //   headerContent.innerHTML = "<p>Specjalistyczna Praktyka Stomatologiczna OrtoDentis zajmująca się leczeniem <span class='highlight' style='font-family:Istok Web', sans-serif'>ortodontycznym</span> funkcjonuje od 1994 roku.</p> <p>Do Państwa dyspozycji są nowocześnie wyposażone gabinety stomatologiczne oraz <span class='highlight' style='font-family:Istok Web', sans-serif'>pracownia RTG</span>.</p> <p>Pracujemy na najnowocześniejszych i sprawdzonych materiałach renomowanych firm ortodontycznych.</p><br><p>Zapoznaj się z naszą ofertą!</p>"
+        //   headerContent.innerHTML = "<p>Profesjonalna opieka ortodontyczna </p> <p>Nowoczesne metody leczenia </p> <p>Doświadczenie zbierane od ponad 25 lat.</p> <p> Ponad 10 000 pacjentów rocznie </p> <br><p>Zapoznaj się z naszą ofertą!</p>"
+        // } else {
+        headerContent.innerHTML = "<p>Nowoczesne metody leczenia, profesjonalna opieka ortodontyczna i doświadczenie zbierane od ponad <span class='highlight'>25 lat</span>.</p><p>Zapoznaj się z naszą ofertą!</p> <button class='header__btn'><a href='#sph2'>Więcej</a></button>";
       }
 
   }
