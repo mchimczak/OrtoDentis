@@ -9,6 +9,7 @@
 
 html {
     overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 body {
@@ -216,6 +217,55 @@ body {
     text-align: center;
 }
 
+
+/* WARNING  */
+.warning__wrapper {
+    position: absolute;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+            align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #212121b5;
+    top: 0;
+    left: 0;
+    z-index: 998;
+    overflow: hidden;
+    -webkit-transition: .5s;
+    transition: .5s;
+}
+.warning {
+    position: relative;
+    height: auto;
+    width: 90vw;
+    margin: 0 auto;
+    padding: 2rem;
+    max-height: 700px;
+    max-width: 500px;
+    text-align: center;
+    background-color: #e3e3e3;
+    -webkit-filter: saturate(0.6);
+            filter: saturate(0.6);
+    overflow: visible;
+}
+.warning--close {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    top: -12px;
+    right: -12px;
+    text-align: center;
+    border-radius: 50%;
+    border: 3px solid #f9f9f9;
+    background-color: #333;
+    color: #f9f9f9;
+    cursor: pointer;
+    overflow: visible;
+}
+
 /* MAIN STYLES */
 
 .main__header__content {
@@ -223,7 +273,7 @@ body {
 }
 
 .main__img {
-    background-image: url('img/main/main_background-min.JPG');
+    background-image: url('img/main_background-min.JPG');
     background-position: center;
     background-size: cover;
     width: 100%;
@@ -376,15 +426,18 @@ section:nth-of-type(4) .slide-in.active-enter {
     display: block;
     width: 70%;
     max-width: 200px;
-    height: 50px;
+    height: 40px;
     margin: 1em auto;
     border: none;
     background-color: #3c9739;
     color: #f5f5f5;
     -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
-    border-radius: 15px;
-
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
 }
 
 .section__btn:hover {
@@ -399,19 +452,19 @@ section:nth-of-type(4) .slide-in.active-enter {
 /* SECTIONS PHOTO BG  */
 
 section:nth-of-type(1) .section__photo {
-    background-image: url('img/main/section_1-min.jpg');
+    background-image: url('img/section_1-min.jpg');
 }
 
 section:nth-of-type(2) .section__photo {
-    background-image: url('img/main/section_2-min.jpg');
+    background-image: url('img/section_2-min.jpg');
 }
 
 section:nth-of-type(3) .section__photo {
-    background-image: url('img/main/section_3-min.jpg');
+    background-image: url('img/section_3-min.jpg');
 }
 
 section:nth-of-type(4) .section__photo {
-    background-image: url('img/main/section_4-min.jpg');
+    background-image: url('img/section_4-min.jpg');
 }
 
 
@@ -494,27 +547,27 @@ section:nth-of-type(4) .highlight {
 /* SECTION 5 GALLERY  */
 
 .slide:nth-of-type(1) {
-    background-image: url('/img/section4_gallery/1-min.JPG');
+    background-image: url('./img/1-min.JPG');
 }
 
 .slide:nth-of-type(2) {
-    background-image: url('/img/section4_gallery/3-min.jpg');
+    background-image: url('./img/3-min.jpg');
 }
 
 .slide:nth-of-type(3) {
-    background-image: url('/img/section4_gallery/5-min.jpg');
+    background-image: url('./img/5-min.jpg');
 }
 
 .slide:nth-of-type(4) {
-    background-image: url('/img/section4_gallery/6-min.jpg');
+    background-image: url('./img/6-min.jpg');
 }
 
 .slide:nth-of-type(5) {
-    background-image: url('/img/section4_gallery/7-min.JPG');
+    background-image: url('./img/7-min.JPG');
 }
 
 .slide:nth-of-type(6) {
-    background-image: url('/img/section4_gallery/8-min.JPG');
+    background-image: url('./img/8-min.JPG');
 }
 
 #slides {
@@ -559,18 +612,19 @@ section:nth-of-type(6) .section__content {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
+    flex-direction: column;
     -webkit-box-align: center;
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
-    padding: 0;
+    padding: 2rem;
 }
 
 section:nth-of-type(6) .section__content>div {
     margin: 1em auto;
     padding: 0 0 0 1em;
     width: 300px;
-    font-size: 11px;
+    font-size: 14px;
     text-align: center;
 }
 
@@ -699,7 +753,7 @@ section:nth-of-type(6) .section__content li {
     }
 
     .header__btn {
-        display: block;
+        display: flex;
         position: absolute;
         width: 70%;
         max-width: 150px;
@@ -708,10 +762,18 @@ section:nth-of-type(6) .section__content li {
         background-color: #f5f5f5;
         color: #333;
         right: 0;
-        border-radius: 5px;
+        border-radius: 3px;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
         box-shadow: 1px 2px 4px #000;
         transition: .1s all ease-in;
-    }
+        cursor: pointer;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        -ms-border-radius: 3px;
+        -o-border-radius: 3px;
+}
 
     .header__btn:hover {
         transform: scale(.95);
@@ -719,15 +781,8 @@ section:nth-of-type(6) .section__content li {
     }
 
     .header__btn a {
-        position: absolute;
         color: #333;
         text-decoration: none;
-        width: 100%;
-        left: 0;
-        top: 50%;
-        -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-        transform: translateY(-50%);
     }
 
     .section__anchor {
@@ -897,7 +952,7 @@ section:nth-of-type(6) .section__content li {
         width: 100%;
         height: 94%;
         margin: 0 auto;
-        background-image: url('img/section3/dental.jpg');
+        background-image: url('img/dental.jpg');
         background-position: center;
         background-size: cover;
         -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
@@ -956,6 +1011,11 @@ section:nth-of-type(6) .section__content li {
     .section__card--highlight {
         display: none;
     }
+
+    /* SECTION 6 */
+    section:nth-of-type(6) .section__content {
+        flex-direction: row;
+    }
 }
 
 
@@ -1001,7 +1061,7 @@ section:nth-of-type(6) .section__content li {
         content: '';
         position: relative;
         display: inline-block;
-        background-image: url('img/nav/tick.png');
+        background-image: url('img/tick.png');
         width: 24px;
         height: 24px;
         margin-left: .5em;
@@ -1492,41 +1552,41 @@ section:nth-of-type(6) .section__content li {
     section:nth-of-type(5) .section__grid>div:nth-of-type(1) {
         grid-column: 1/3;
         grid-row: 1/3;
-        background-image: url('/img/section4_gallery/1-min.JPG');
+        background-image: url('./img/1-min.jpg');
     }
 
     section:nth-of-type(5) .section__grid>div:nth-of-type(2) {
-        background-image: url('/img/section4_gallery/2-min.JPG');
+        background-image: url('./img/2-min.jpg');
     }
 
     section:nth-of-type(5) .section__grid>div:nth-of-type(3) {
-        background-image: url('/img/section4_gallery/3-min.jpg');
+        background-image: url('./img/3-min.jpg');
     }
 
     section:nth-of-type(5) .section__grid>div:nth-of-type(4) {
-        background-image: url('/img/section4_gallery/12-min.jpg');
+        background-image: url('./img/12-min.jpg');
     }
 
     section:nth-of-type(5) .section__grid>div:nth-of-type(5) {
-        background-image: url('/img/section4_gallery/5-min.jpg');
+        background-image: url('./img/5-min.jpg');
     }
 
     section:nth-of-type(5) .section__grid>div:nth-of-type(6) {
         grid-column: 4/6;
         grid-row: 2/4;
-        background-image: url('/img/section4_gallery/6-min.jpg');
+        background-image: url('./img/6-min.jpg');
     }
 
     section:nth-of-type(5) .section__grid>div:nth-of-type(7) {
-        background-image: url('/img/section4_gallery/7-min.JPG');
+        background-image: url('./img/7-min.jpg');
     }
 
     section:nth-of-type(5) .section__grid>div:nth-of-type(8) {
-        background-image: url('/img/section4_gallery/8-min.JPG');
+        background-image: url('./img/8-min.jpg');
     }
 
     section:nth-of-type(5) .section__grid>div:nth-of-type(9) {
-        background-image: url('/img/section4_gallery/9-min.JPG');
+        background-image: url('./img/9-min.jpg');
     }
 
     /* SECTION 6 */

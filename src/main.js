@@ -1,3 +1,20 @@
+import '../src/style.css';
+
+document.documentElement.scrollTop = 0;
+document.body.scrollTop = 0;
+window.scrollTo(0,0); 
+
+//WARNING
+const warningWrapper = document.querySelector('.warning__wrapper');
+const CloseWarning = document.querySelector('.warning--close');
+const Html = document.querySelector('html');
+
+CloseWarning.addEventListener('click', () => {
+    warningWrapper.style.setProperty('display', 'none');
+    Html.style.setProperty('overflow-y', 'auto');
+});
+
+
 const navHeader = document.querySelector('.nav__header');
 const main = document.querySelector('.main__img');
 const headerContent = document.querySelector('.main__header__content');
